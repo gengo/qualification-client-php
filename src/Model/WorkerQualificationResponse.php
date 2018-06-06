@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  Swagger\Client
+ * @package  QualificationClient
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace Swagger\Client\Model;
+namespace QualificationClient\Model;
 
 use \ArrayAccess;
-use \Swagger\Client\ObjectSerializer;
+use \QualificationClient\ObjectSerializer;
 
 /**
  * WorkerQualificationResponse Class Doc Comment
  *
  * @category Class
- * @package  Swagger\Client
+ * @package  QualificationClient
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -59,7 +59,7 @@ class WorkerQualificationResponse implements ModelInterface, ArrayAccess
     protected static $swaggerTypes = [
         'type' => 'string',
         'name' => 'string',
-        'qualifications' => '\Swagger\Client\Model\QualificationResponse[]'
+        'qualifications' => '\QualificationClient\Model\QualificationResponse[]'
     ];
 
     /**
@@ -267,7 +267,7 @@ class WorkerQualificationResponse implements ModelInterface, ArrayAccess
     /**
      * Gets qualifications
      *
-     * @return \Swagger\Client\Model\QualificationResponse[]
+     * @return \QualificationClient\Model\QualificationResponse[]
      */
     public function getQualifications()
     {
@@ -277,7 +277,7 @@ class WorkerQualificationResponse implements ModelInterface, ArrayAccess
     /**
      * Sets qualifications
      *
-     * @param \Swagger\Client\Model\QualificationResponse[] $qualifications qualifications
+     * @param \QualificationClient\Model\QualificationResponse[] $qualifications qualifications
      *
      * @return $this
      */

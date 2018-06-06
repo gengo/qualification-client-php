@@ -4,7 +4,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  Swagger\Client
+ * @package  QualificationClient
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -26,7 +26,7 @@
  * Do not edit the class manually.
  */
 
-namespace Swagger\Client\Api;
+namespace QualificationClient\Api;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
@@ -34,16 +34,16 @@ use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Psr7\MultipartStream;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\RequestOptions;
-use Swagger\Client\ApiException;
-use Swagger\Client\Configuration;
-use Swagger\Client\HeaderSelector;
-use Swagger\Client\ObjectSerializer;
+use QualificationClient\ApiException;
+use QualificationClient\Configuration;
+use QualificationClient\HeaderSelector;
+use QualificationClient\ObjectSerializer;
 
 /**
  * StatusApi Class Doc Comment
  *
  * @category Class
- * @package  Swagger\Client
+ * @package  QualificationClient
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -93,9 +93,9 @@ class StatusApi
      * Returns the API version
      *
      *
-     * @throws \Swagger\Client\ApiException on non-2xx response
+     * @throws \QualificationClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Swagger\Client\Model\InlineResponse200
+     * @return \QualificationClient\Model\InlineResponse200
      */
     public function getStatus()
     {
@@ -109,13 +109,13 @@ class StatusApi
      * Returns the API version
      *
      *
-     * @throws \Swagger\Client\ApiException on non-2xx response
+     * @throws \QualificationClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Swagger\Client\Model\InlineResponse200, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \QualificationClient\Model\InlineResponse200, HTTP status code, HTTP response headers (array of strings)
      */
     public function getStatusWithHttpInfo()
     {
-        $returnType = '\Swagger\Client\Model\InlineResponse200';
+        $returnType = '\QualificationClient\Model\InlineResponse200';
         $request = $this->getStatusRequest();
 
         try {
@@ -167,7 +167,7 @@ class StatusApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Swagger\Client\Model\InlineResponse200',
+                        '\QualificationClient\Model\InlineResponse200',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -207,7 +207,7 @@ class StatusApi
      */
     public function getStatusAsyncWithHttpInfo()
     {
-        $returnType = '\Swagger\Client\Model\InlineResponse200';
+        $returnType = '\QualificationClient\Model\InlineResponse200';
         $request = $this->getStatusRequest();
 
         return $this->client

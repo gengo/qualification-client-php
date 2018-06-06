@@ -1,11 +1,11 @@
 <?php
 /**
- * Ranks
+ * Status
  *
  * PHP version 5
  *
  * @category Class
- * @package  Swagger\Client
+ * @package  QualificationClient
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -27,27 +27,24 @@
  * Do not edit the class manually.
  */
 
-namespace Swagger\Client\Model;
-use \Swagger\Client\ObjectSerializer;
+namespace QualificationClient\Model;
+use \QualificationClient\ObjectSerializer;
 
 /**
- * Ranks Class Doc Comment
+ * Status Class Doc Comment
  *
  * @category Class
- * @package  Swagger\Client
+ * @package  QualificationClient
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class Ranks
+class Status
 {
     /**
      * Possible values of this enum
      */
-    const PRO = 'pro';
-    const STANDARD = 'standard';
-    const UNTESTED = 'untested';
-    const PROOFREAD = 'proofread';
-    const SUPER_WORKER = 'super_worker';
+    const APPROVED = 'approved';
+    const REVOKED = 'revoked';
     
     /**
      * Gets allowable values of the enum
@@ -56,11 +53,8 @@ class Ranks
     public static function getAllowableEnumValues()
     {
         return [
-            self::PRO,
-            self::STANDARD,
-            self::UNTESTED,
-            self::PROOFREAD,
-            self::SUPER_WORKER,
+            self::APPROVED,
+            self::REVOKED,
         ];
     }
 }
