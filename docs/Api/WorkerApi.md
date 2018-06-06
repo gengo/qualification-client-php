@@ -1,6 +1,6 @@
 # QualificationClient\WorkerApi
 
-All URIs are relative to *http://api.gengo.com/saiki*
+All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -57,7 +57,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **createWorkerQualification**
-> \QualificationClient\Model\QualificationResponse createWorkerQualification($worker_id, $qualification_type, $qualification)
+> \QualificationClient\Model\QualificationResponse[] createWorkerQualification($worker_id, $qualification_type, $qualification)
 
 Create a new qualification
 
@@ -96,7 +96,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\QualificationClient\Model\QualificationResponse**](../Model/QualificationResponse.md)
+[**\QualificationClient\Model\QualificationResponse[]**](../Model/QualificationResponse.md)
 
 ### Authorization
 

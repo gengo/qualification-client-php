@@ -81,7 +81,7 @@ class Configuration
      *
      * @var string
      */
-    protected $host = 'http://api.gengo.com/saiki';
+    protected $host = 'http://localhost';
 
     /**
      * User agent of the HTTP request, set to "PHP-Swagger" by default

@@ -355,7 +355,7 @@ class WorkerApi
      *
      * @throws \QualificationClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \QualificationClient\Model\QualificationResponse
+     * @return \QualificationClient\Model\QualificationResponse[]
      */
     public function createWorkerQualification($worker_id, $qualification_type, $qualification)
     {
@@ -374,11 +374,11 @@ class WorkerApi
      *
      * @throws \QualificationClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \QualificationClient\Model\QualificationResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \QualificationClient\Model\QualificationResponse[], HTTP status code, HTTP response headers (array of strings)
      */
     public function createWorkerQualificationWithHttpInfo($worker_id, $qualification_type, $qualification)
     {
-        $returnType = '\QualificationClient\Model\QualificationResponse';
+        $returnType = '\QualificationClient\Model\QualificationResponse[]';
         $request = $this->createWorkerQualificationRequest($worker_id, $qualification_type, $qualification);
 
         try {
@@ -430,7 +430,7 @@ class WorkerApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\QualificationClient\Model\QualificationResponse',
+                        '\QualificationClient\Model\QualificationResponse[]',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -484,7 +484,7 @@ class WorkerApi
      */
     public function createWorkerQualificationAsyncWithHttpInfo($worker_id, $qualification_type, $qualification)
     {
-        $returnType = '\QualificationClient\Model\QualificationResponse';
+        $returnType = '\QualificationClient\Model\QualificationResponse[]';
         $request = $this->createWorkerQualificationRequest($worker_id, $qualification_type, $qualification);
 
         return $this->client

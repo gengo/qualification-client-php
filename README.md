@@ -77,7 +77,7 @@ try {
 
 ## Documentation for API Endpoints
 
-All URIs are relative to *http://api.gengo.com/saiki*
+All URIs are relative to *http://localhost*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------

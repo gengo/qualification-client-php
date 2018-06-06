@@ -1,6 +1,6 @@
 # QualificationClient\StatusApi
 
-All URIs are relative to *http://api.gengo.com/saiki*
+All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
