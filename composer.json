@@ -1,5 +1,6 @@
 {
     "name": "gengo/qualification-client-php",
+    "version": "0.0.3-dev11",
     "description": "",
     "keywords": [
         "swagger",
