@@ -4,7 +4,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  Swagger\Client
+ * @package  QualificationClient
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -26,7 +26,7 @@
  * Do not edit the class manually.
  */
 
-namespace Swagger\Client\Api;
+namespace QualificationClient\Api;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
@@ -34,16 +34,16 @@ use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Psr7\MultipartStream;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\RequestOptions;
-use Swagger\Client\ApiException;
-use Swagger\Client\Configuration;
-use Swagger\Client\HeaderSelector;
-use Swagger\Client\ObjectSerializer;
+use QualificationClient\ApiException;
+use QualificationClient\Configuration;
+use QualificationClient\HeaderSelector;
+use QualificationClient\ObjectSerializer;
 
 /**
  * QualificationApi Class Doc Comment
  *
  * @category Class
- * @package  Swagger\Client
+ * @package  QualificationClient
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -94,11 +94,11 @@ class QualificationApi
      *
      * @param  int $worker_id ID of a worker (required)
      * @param  string $qualification_type Qualification type. (required)
-     * @param  \Swagger\Client\Model\PostQualificationRequest $qualification qualification (required)
+     * @param  \QualificationClient\Model\PostQualificationRequest $qualification qualification (required)
      *
-     * @throws \Swagger\Client\ApiException on non-2xx response
+     * @throws \QualificationClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Swagger\Client\Model\QualificationResponse[]
+     * @return \QualificationClient\Model\QualificationResponse[]
      */
     public function createWorkerQualification($worker_id, $qualification_type, $qualification)
     {
@@ -113,15 +113,15 @@ class QualificationApi
      *
      * @param  int $worker_id ID of a worker (required)
      * @param  string $qualification_type Qualification type. (required)
-     * @param  \Swagger\Client\Model\PostQualificationRequest $qualification (required)
+     * @param  \QualificationClient\Model\PostQualificationRequest $qualification (required)
      *
-     * @throws \Swagger\Client\ApiException on non-2xx response
+     * @throws \QualificationClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Swagger\Client\Model\QualificationResponse[], HTTP status code, HTTP response headers (array of strings)
+     * @return array of \QualificationClient\Model\QualificationResponse[], HTTP status code, HTTP response headers (array of strings)
      */
     public function createWorkerQualificationWithHttpInfo($worker_id, $qualification_type, $qualification)
     {
-        $returnType = '\Swagger\Client\Model\QualificationResponse[]';
+        $returnType = '\QualificationClient\Model\QualificationResponse[]';
         $request = $this->createWorkerQualificationRequest($worker_id, $qualification_type, $qualification);
 
         try {
@@ -173,7 +173,7 @@ class QualificationApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Swagger\Client\Model\QualificationResponse[]',
+                        '\QualificationClient\Model\QualificationResponse[]',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -181,7 +181,7 @@ class QualificationApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Swagger\Client\Model\BadRequest',
+                        '\QualificationClient\Model\BadRequest',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -198,7 +198,7 @@ class QualificationApi
      *
      * @param  int $worker_id ID of a worker (required)
      * @param  string $qualification_type Qualification type. (required)
-     * @param  \Swagger\Client\Model\PostQualificationRequest $qualification (required)
+     * @param  \QualificationClient\Model\PostQualificationRequest $qualification (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -220,14 +220,14 @@ class QualificationApi
      *
      * @param  int $worker_id ID of a worker (required)
      * @param  string $qualification_type Qualification type. (required)
-     * @param  \Swagger\Client\Model\PostQualificationRequest $qualification (required)
+     * @param  \QualificationClient\Model\PostQualificationRequest $qualification (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function createWorkerQualificationAsyncWithHttpInfo($worker_id, $qualification_type, $qualification)
     {
-        $returnType = '\Swagger\Client\Model\QualificationResponse[]';
+        $returnType = '\QualificationClient\Model\QualificationResponse[]';
         $request = $this->createWorkerQualificationRequest($worker_id, $qualification_type, $qualification);
 
         return $this->client
@@ -272,7 +272,7 @@ class QualificationApi
      *
      * @param  int $worker_id ID of a worker (required)
      * @param  string $qualification_type Qualification type. (required)
-     * @param  \Swagger\Client\Model\PostQualificationRequest $qualification (required)
+     * @param  \QualificationClient\Model\PostQualificationRequest $qualification (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -407,9 +407,9 @@ class QualificationApi
      * @param  int $page Current page (optional)
      * @param  int $limit No. of items per page (optional)
      *
-     * @throws \Swagger\Client\ApiException on non-2xx response
+     * @throws \QualificationClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Swagger\Client\Model\QualificationResponse[]
+     * @return \QualificationClient\Model\QualificationResponse[]
      */
     public function getQualifications($qualification_type, $id = null, $worker_id = null, $status = null, $rank = null, $lc_src = null, $lc_tgt = null, $preferred_by = null, $sort_by = null, $page = null, $limit = null)
     {
@@ -434,13 +434,13 @@ class QualificationApi
      * @param  int $page Current page (optional)
      * @param  int $limit No. of items per page (optional)
      *
-     * @throws \Swagger\Client\ApiException on non-2xx response
+     * @throws \QualificationClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Swagger\Client\Model\QualificationResponse[], HTTP status code, HTTP response headers (array of strings)
+     * @return array of \QualificationClient\Model\QualificationResponse[], HTTP status code, HTTP response headers (array of strings)
      */
     public function getQualificationsWithHttpInfo($qualification_type, $id = null, $worker_id = null, $status = null, $rank = null, $lc_src = null, $lc_tgt = null, $preferred_by = null, $sort_by = null, $page = null, $limit = null)
     {
-        $returnType = '\Swagger\Client\Model\QualificationResponse[]';
+        $returnType = '\QualificationClient\Model\QualificationResponse[]';
         $request = $this->getQualificationsRequest($qualification_type, $id, $worker_id, $status, $rank, $lc_src, $lc_tgt, $preferred_by, $sort_by, $page, $limit);
 
         try {
@@ -492,7 +492,7 @@ class QualificationApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Swagger\Client\Model\QualificationResponse[]',
+                        '\QualificationClient\Model\QualificationResponse[]',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -500,7 +500,7 @@ class QualificationApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Swagger\Client\Model\BadRequest',
+                        '\QualificationClient\Model\BadRequest',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -562,7 +562,7 @@ class QualificationApi
      */
     public function getQualificationsAsyncWithHttpInfo($qualification_type, $id = null, $worker_id = null, $status = null, $rank = null, $lc_src = null, $lc_tgt = null, $preferred_by = null, $sort_by = null, $page = null, $limit = null)
     {
-        $returnType = '\Swagger\Client\Model\QualificationResponse[]';
+        $returnType = '\QualificationClient\Model\QualificationResponse[]';
         $request = $this->getQualificationsRequest($qualification_type, $id, $worker_id, $status, $rank, $lc_src, $lc_tgt, $preferred_by, $sort_by, $page, $limit);
 
         return $this->client
@@ -758,11 +758,11 @@ class QualificationApi
      * @param  int $worker_id ID of a worker (required)
      * @param  string $qualification_type Qualification type. (required)
      * @param  int $qualification_id Qualification ID. (required)
-     * @param  \Swagger\Client\Model\QualificationRequest $qualification qualification (required)
+     * @param  \QualificationClient\Model\QualificationRequest $qualification qualification (required)
      *
-     * @throws \Swagger\Client\ApiException on non-2xx response
+     * @throws \QualificationClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Swagger\Client\Model\QualificationResponse
+     * @return \QualificationClient\Model\QualificationResponse
      */
     public function updateWorkerQualification($worker_id, $qualification_type, $qualification_id, $qualification)
     {
@@ -778,15 +778,15 @@ class QualificationApi
      * @param  int $worker_id ID of a worker (required)
      * @param  string $qualification_type Qualification type. (required)
      * @param  int $qualification_id Qualification ID. (required)
-     * @param  \Swagger\Client\Model\QualificationRequest $qualification (required)
+     * @param  \QualificationClient\Model\QualificationRequest $qualification (required)
      *
-     * @throws \Swagger\Client\ApiException on non-2xx response
+     * @throws \QualificationClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Swagger\Client\Model\QualificationResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \QualificationClient\Model\QualificationResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function updateWorkerQualificationWithHttpInfo($worker_id, $qualification_type, $qualification_id, $qualification)
     {
-        $returnType = '\Swagger\Client\Model\QualificationResponse';
+        $returnType = '\QualificationClient\Model\QualificationResponse';
         $request = $this->updateWorkerQualificationRequest($worker_id, $qualification_type, $qualification_id, $qualification);
 
         try {
@@ -838,7 +838,7 @@ class QualificationApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Swagger\Client\Model\QualificationResponse',
+                        '\QualificationClient\Model\QualificationResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -846,7 +846,7 @@ class QualificationApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Swagger\Client\Model\BadRequest',
+                        '\QualificationClient\Model\BadRequest',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -864,7 +864,7 @@ class QualificationApi
      * @param  int $worker_id ID of a worker (required)
      * @param  string $qualification_type Qualification type. (required)
      * @param  int $qualification_id Qualification ID. (required)
-     * @param  \Swagger\Client\Model\QualificationRequest $qualification (required)
+     * @param  \QualificationClient\Model\QualificationRequest $qualification (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -887,14 +887,14 @@ class QualificationApi
      * @param  int $worker_id ID of a worker (required)
      * @param  string $qualification_type Qualification type. (required)
      * @param  int $qualification_id Qualification ID. (required)
-     * @param  \Swagger\Client\Model\QualificationRequest $qualification (required)
+     * @param  \QualificationClient\Model\QualificationRequest $qualification (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function updateWorkerQualificationAsyncWithHttpInfo($worker_id, $qualification_type, $qualification_id, $qualification)
     {
-        $returnType = '\Swagger\Client\Model\QualificationResponse';
+        $returnType = '\QualificationClient\Model\QualificationResponse';
         $request = $this->updateWorkerQualificationRequest($worker_id, $qualification_type, $qualification_id, $qualification);
 
         return $this->client
@@ -940,7 +940,7 @@ class QualificationApi
      * @param  int $worker_id ID of a worker (required)
      * @param  string $qualification_type Qualification type. (required)
      * @param  int $qualification_id Qualification ID. (required)
-     * @param  \Swagger\Client\Model\QualificationRequest $qualification (required)
+     * @param  \QualificationClient\Model\QualificationRequest $qualification (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request

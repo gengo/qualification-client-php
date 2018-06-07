@@ -1,11 +1,11 @@
 <?php
 /**
- * UserResponse
+ * InlineResponse200
  *
  * PHP version 5
  *
  * @category Class
- * @package  Swagger\Client
+ * @package  QualificationClient
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -27,20 +27,20 @@
  * Do not edit the class manually.
  */
 
-namespace Swagger\Client\Model;
+namespace QualificationClient\Model;
 
 use \ArrayAccess;
-use \Swagger\Client\ObjectSerializer;
+use \QualificationClient\ObjectSerializer;
 
 /**
- * UserResponse Class Doc Comment
+ * InlineResponse200 Class Doc Comment
  *
  * @category Class
- * @package  Swagger\Client
+ * @package  QualificationClient
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class UserResponse implements ModelInterface, ArrayAccess
+class InlineResponse200 implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class UserResponse implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'UserResponse';
+    protected static $swaggerModelName = 'inline_response_200';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,9 +57,7 @@ class UserResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'id' => 'int',
-        'email' => 'string',
-        'display_name' => 'string'
+        'version' => 'string'
     ];
 
     /**
@@ -68,9 +66,7 @@ class UserResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'id' => null,
-        'email' => null,
-        'display_name' => null
+        'version' => null
     ];
 
     /**
@@ -100,9 +96,7 @@ class UserResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'id' => 'id',
-        'email' => 'email',
-        'display_name' => 'display_name'
+        'version' => 'version'
     ];
 
     /**
@@ -111,9 +105,7 @@ class UserResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'id' => 'setId',
-        'email' => 'setEmail',
-        'display_name' => 'setDisplayName'
+        'version' => 'setVersion'
     ];
 
     /**
@@ -122,9 +114,7 @@ class UserResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'id' => 'getId',
-        'email' => 'getEmail',
-        'display_name' => 'getDisplayName'
+        'version' => 'getVersion'
     ];
 
     /**
@@ -187,9 +177,7 @@ class UserResponse implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
-        $this->container['email'] = isset($data['email']) ? $data['email'] : null;
-        $this->container['display_name'] = isset($data['display_name']) ? $data['display_name'] : null;
+        $this->container['version'] = isset($data['version']) ? $data['version'] : null;
     }
 
     /**
@@ -217,73 +205,25 @@ class UserResponse implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets id
-     *
-     * @return int
-     */
-    public function getId()
-    {
-        return $this->container['id'];
-    }
-
-    /**
-     * Sets id
-     *
-     * @param int $id id
-     *
-     * @return $this
-     */
-    public function setId($id)
-    {
-        $this->container['id'] = $id;
-
-        return $this;
-    }
-
-    /**
-     * Gets email
+     * Gets version
      *
      * @return string
      */
-    public function getEmail()
+    public function getVersion()
     {
-        return $this->container['email'];
+        return $this->container['version'];
     }
 
     /**
-     * Sets email
+     * Sets version
      *
-     * @param string $email email
+     * @param string $version version
      *
      * @return $this
      */
-    public function setEmail($email)
+    public function setVersion($version)
     {
-        $this->container['email'] = $email;
-
-        return $this;
-    }
-
-    /**
-     * Gets display_name
-     *
-     * @return string
-     */
-    public function getDisplayName()
-    {
-        return $this->container['display_name'];
-    }
-
-    /**
-     * Sets display_name
-     *
-     * @param string $display_name display_name
-     *
-     * @return $this
-     */
-    public function setDisplayName($display_name)
-    {
-        $this->container['display_name'] = $display_name;
+        $this->container['version'] = $version;
 
         return $this;
     }

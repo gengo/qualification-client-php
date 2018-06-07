@@ -1,4 +1,4 @@
-# Swagger\Client\WorkerApi
+# QualificationClient\WorkerApi
 
 All URIs are relative to *http://localhost*
 
@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 
 # **createWorker**
-> \Swagger\Client\Model\WorkerResponse createWorker($worker)
+> \QualificationClient\Model\WorkerResponse createWorker($worker)
 
 Create a new worker
 
@@ -19,12 +19,12 @@ Create a new worker
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiInstance = new Swagger\Client\Api\WorkerApi(
+$apiInstance = new QualificationClient\Api\WorkerApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$worker = new \Swagger\Client\Model\WorkerRequest(); // \Swagger\Client\Model\WorkerRequest | 
+$worker = new \QualificationClient\Model\WorkerRequest(); // \QualificationClient\Model\WorkerRequest | 
 
 try {
     $result = $apiInstance->createWorker($worker);
@@ -39,11 +39,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **worker** | [**\Swagger\Client\Model\WorkerRequest**](../Model/WorkerRequest.md)|  |
+ **worker** | [**\QualificationClient\Model\WorkerRequest**](../Model/WorkerRequest.md)|  |
 
 ### Return type
 
-[**\Swagger\Client\Model\WorkerResponse**](../Model/WorkerResponse.md)
+[**\QualificationClient\Model\WorkerResponse**](../Model/WorkerResponse.md)
 
 ### Authorization
 
@@ -57,7 +57,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **createWorkerQualification**
-> \Swagger\Client\Model\QualificationResponse[] createWorkerQualification($worker_id, $qualification_type, $qualification)
+> \QualificationClient\Model\QualificationResponse[] createWorkerQualification($worker_id, $qualification_type, $qualification)
 
 Create a new qualification
 
@@ -68,14 +68,14 @@ Create a new worker qualification
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiInstance = new Swagger\Client\Api\WorkerApi(
+$apiInstance = new QualificationClient\Api\WorkerApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
 $worker_id = 56; // int | ID of a worker
 $qualification_type = "qualification_type_example"; // string | Qualification type.
-$qualification = new \Swagger\Client\Model\PostQualificationRequest(); // \Swagger\Client\Model\PostQualificationRequest | 
+$qualification = new \QualificationClient\Model\PostQualificationRequest(); // \QualificationClient\Model\PostQualificationRequest | 
 
 try {
     $result = $apiInstance->createWorkerQualification($worker_id, $qualification_type, $qualification);
@@ -92,11 +92,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **worker_id** | **int**| ID of a worker |
  **qualification_type** | **string**| Qualification type. |
- **qualification** | [**\Swagger\Client\Model\PostQualificationRequest**](../Model/PostQualificationRequest.md)|  |
+ **qualification** | [**\QualificationClient\Model\PostQualificationRequest**](../Model/PostQualificationRequest.md)|  |
 
 ### Return type
 
-[**\Swagger\Client\Model\QualificationResponse[]**](../Model/QualificationResponse.md)
+[**\QualificationClient\Model\QualificationResponse[]**](../Model/QualificationResponse.md)
 
 ### Authorization
 
@@ -110,7 +110,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **updateWorkerQualification**
-> \Swagger\Client\Model\QualificationResponse updateWorkerQualification($worker_id, $qualification_type, $qualification_id, $qualification)
+> \QualificationClient\Model\QualificationResponse updateWorkerQualification($worker_id, $qualification_type, $qualification_id, $qualification)
 
 Update qualification
 
@@ -121,7 +121,7 @@ Update qualification
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiInstance = new Swagger\Client\Api\WorkerApi(
+$apiInstance = new QualificationClient\Api\WorkerApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -129,7 +129,7 @@ $apiInstance = new Swagger\Client\Api\WorkerApi(
 $worker_id = 56; // int | ID of a worker
 $qualification_type = "qualification_type_example"; // string | Qualification type.
 $qualification_id = 56; // int | Qualification ID.
-$qualification = new \Swagger\Client\Model\QualificationRequest(); // \Swagger\Client\Model\QualificationRequest | 
+$qualification = new \QualificationClient\Model\QualificationRequest(); // \QualificationClient\Model\QualificationRequest | 
 
 try {
     $result = $apiInstance->updateWorkerQualification($worker_id, $qualification_type, $qualification_id, $qualification);
@@ -147,11 +147,11 @@ Name | Type | Description  | Notes
  **worker_id** | **int**| ID of a worker |
  **qualification_type** | **string**| Qualification type. |
  **qualification_id** | **int**| Qualification ID. |
- **qualification** | [**\Swagger\Client\Model\QualificationRequest**](../Model/QualificationRequest.md)|  |
+ **qualification** | [**\QualificationClient\Model\QualificationRequest**](../Model/QualificationRequest.md)|  |
 
 ### Return type
 
-[**\Swagger\Client\Model\QualificationResponse**](../Model/QualificationResponse.md)
+[**\QualificationClient\Model\QualificationResponse**](../Model/QualificationResponse.md)
 
 ### Authorization
 

@@ -1,11 +1,11 @@
 <?php
 /**
- * WorkerResponse
+ * UserResponse
  *
  * PHP version 5
  *
  * @category Class
- * @package  Swagger\Client
+ * @package  QualificationClient
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -27,20 +27,20 @@
  * Do not edit the class manually.
  */
 
-namespace Swagger\Client\Model;
+namespace QualificationClient\Model;
 
 use \ArrayAccess;
-use \Swagger\Client\ObjectSerializer;
+use \QualificationClient\ObjectSerializer;
 
 /**
- * WorkerResponse Class Doc Comment
+ * UserResponse Class Doc Comment
  *
  * @category Class
- * @package  Swagger\Client
+ * @package  QualificationClient
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class WorkerResponse implements ModelInterface, ArrayAccess
+class UserResponse implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class WorkerResponse implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'WorkerResponse';
+    protected static $swaggerModelName = 'UserResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,8 +57,9 @@ class WorkerResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'user_id' => 'int',
-        'ctime' => '\DateTime'
+        'id' => 'int',
+        'email' => 'string',
+        'display_name' => 'string'
     ];
 
     /**
@@ -67,8 +68,9 @@ class WorkerResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'user_id' => null,
-        'ctime' => 'date-time'
+        'id' => null,
+        'email' => null,
+        'display_name' => null
     ];
 
     /**
@@ -98,8 +100,9 @@ class WorkerResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'user_id' => 'user_id',
-        'ctime' => 'ctime'
+        'id' => 'id',
+        'email' => 'email',
+        'display_name' => 'display_name'
     ];
 
     /**
@@ -108,8 +111,9 @@ class WorkerResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'user_id' => 'setUserId',
-        'ctime' => 'setCtime'
+        'id' => 'setId',
+        'email' => 'setEmail',
+        'display_name' => 'setDisplayName'
     ];
 
     /**
@@ -118,8 +122,9 @@ class WorkerResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'user_id' => 'getUserId',
-        'ctime' => 'getCtime'
+        'id' => 'getId',
+        'email' => 'getEmail',
+        'display_name' => 'getDisplayName'
     ];
 
     /**
@@ -182,8 +187,9 @@ class WorkerResponse implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['user_id'] = isset($data['user_id']) ? $data['user_id'] : null;
-        $this->container['ctime'] = isset($data['ctime']) ? $data['ctime'] : null;
+        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
+        $this->container['email'] = isset($data['email']) ? $data['email'] : null;
+        $this->container['display_name'] = isset($data['display_name']) ? $data['display_name'] : null;
     }
 
     /**
@@ -211,49 +217,73 @@ class WorkerResponse implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets user_id
+     * Gets id
      *
      * @return int
      */
-    public function getUserId()
+    public function getId()
     {
-        return $this->container['user_id'];
+        return $this->container['id'];
     }
 
     /**
-     * Sets user_id
+     * Sets id
      *
-     * @param int $user_id user_id
+     * @param int $id id
      *
      * @return $this
      */
-    public function setUserId($user_id)
+    public function setId($id)
     {
-        $this->container['user_id'] = $user_id;
+        $this->container['id'] = $id;
 
         return $this;
     }
 
     /**
-     * Gets ctime
+     * Gets email
      *
-     * @return \DateTime
+     * @return string
      */
-    public function getCtime()
+    public function getEmail()
     {
-        return $this->container['ctime'];
+        return $this->container['email'];
     }
 
     /**
-     * Sets ctime
+     * Sets email
      *
-     * @param \DateTime $ctime ctime
+     * @param string $email email
      *
      * @return $this
      */
-    public function setCtime($ctime)
+    public function setEmail($email)
     {
-        $this->container['ctime'] = $ctime;
+        $this->container['email'] = $email;
+
+        return $this;
+    }
+
+    /**
+     * Gets display_name
+     *
+     * @return string
+     */
+    public function getDisplayName()
+    {
+        return $this->container['display_name'];
+    }
+
+    /**
+     * Sets display_name
+     *
+     * @param string $display_name display_name
+     *
+     * @return $this
+     */
+    public function setDisplayName($display_name)
+    {
+        $this->container['display_name'] = $display_name;
 
         return $this;
     }

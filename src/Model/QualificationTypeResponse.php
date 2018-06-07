@@ -1,11 +1,11 @@
 <?php
 /**
- * InlineResponse200
+ * QualificationTypeResponse
  *
  * PHP version 5
  *
  * @category Class
- * @package  Swagger\Client
+ * @package  QualificationClient
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -27,20 +27,20 @@
  * Do not edit the class manually.
  */
 
-namespace Swagger\Client\Model;
+namespace QualificationClient\Model;
 
 use \ArrayAccess;
-use \Swagger\Client\ObjectSerializer;
+use \QualificationClient\ObjectSerializer;
 
 /**
- * InlineResponse200 Class Doc Comment
+ * QualificationTypeResponse Class Doc Comment
  *
  * @category Class
- * @package  Swagger\Client
+ * @package  QualificationClient
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class InlineResponse200 implements ModelInterface, ArrayAccess
+class QualificationTypeResponse implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class InlineResponse200 implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'inline_response_200';
+    protected static $swaggerModelName = 'QualificationTypeResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,7 +57,9 @@ class InlineResponse200 implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'version' => 'string'
+        'id' => 'int',
+        'type' => 'string',
+        'name' => 'string'
     ];
 
     /**
@@ -66,7 +68,9 @@ class InlineResponse200 implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'version' => null
+        'id' => null,
+        'type' => null,
+        'name' => null
     ];
 
     /**
@@ -96,7 +100,9 @@ class InlineResponse200 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'version' => 'version'
+        'id' => 'id',
+        'type' => 'type',
+        'name' => 'name'
     ];
 
     /**
@@ -105,7 +111,9 @@ class InlineResponse200 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'version' => 'setVersion'
+        'id' => 'setId',
+        'type' => 'setType',
+        'name' => 'setName'
     ];
 
     /**
@@ -114,7 +122,9 @@ class InlineResponse200 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'version' => 'getVersion'
+        'id' => 'getId',
+        'type' => 'getType',
+        'name' => 'getName'
     ];
 
     /**
@@ -177,7 +187,9 @@ class InlineResponse200 implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['version'] = isset($data['version']) ? $data['version'] : null;
+        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
+        $this->container['type'] = isset($data['type']) ? $data['type'] : null;
+        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
     }
 
     /**
@@ -205,25 +217,73 @@ class InlineResponse200 implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets version
+     * Gets id
      *
-     * @return string
+     * @return int
      */
-    public function getVersion()
+    public function getId()
     {
-        return $this->container['version'];
+        return $this->container['id'];
     }
 
     /**
-     * Sets version
+     * Sets id
      *
-     * @param string $version version
+     * @param int $id id
      *
      * @return $this
      */
-    public function setVersion($version)
+    public function setId($id)
     {
-        $this->container['version'] = $version;
+        $this->container['id'] = $id;
+
+        return $this;
+    }
+
+    /**
+     * Gets type
+     *
+     * @return string
+     */
+    public function getType()
+    {
+        return $this->container['type'];
+    }
+
+    /**
+     * Sets type
+     *
+     * @param string $type The qualification type
+     *
+     * @return $this
+     */
+    public function setType($type)
+    {
+        $this->container['type'] = $type;
+
+        return $this;
+    }
+
+    /**
+     * Gets name
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->container['name'];
+    }
+
+    /**
+     * Sets name
+     *
+     * @param string $name The normalized name of qualification type
+     *
+     * @return $this
+     */
+    public function setName($name)
+    {
+        $this->container['name'] = $name;
 
         return $this;
     }

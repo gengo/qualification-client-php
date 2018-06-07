@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **lc_tgt** | **string** | Language target | [optional] 
 **rank** | **string** | Rank of qualification | [optional] 
 **status** | **string** | Status of qualification | [optional] 
-**user** | [**\Swagger\Client\Model\QualificationResponseUser**](QualificationResponseUser.md) |  | [optional] 
+**user** | [**\QualificationClient\Model\QualificationResponseUser**](QualificationResponseUser.md) |  | [optional] 
 **certificate** | **string** | URL of a worker certification file | [optional] 
 **type** | **string** |  | [optional] 
 **mtime** | [**\DateTime**](\DateTime.md) |  | [optional] 

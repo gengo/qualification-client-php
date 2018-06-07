@@ -5,7 +5,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **type** | **string** |  | [optional] 
 **name** | **string** |  | [optional] 
-**qualifications** | [**\Swagger\Client\Model\QualificationResponse[]**](QualificationResponse.md) |  | [optional] 
+**qualifications** | [**\QualificationClient\Model\QualificationResponse[]**](QualificationResponse.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

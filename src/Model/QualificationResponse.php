@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  Swagger\Client
+ * @package  QualificationClient
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace Swagger\Client\Model;
+namespace QualificationClient\Model;
 
 use \ArrayAccess;
-use \Swagger\Client\ObjectSerializer;
+use \QualificationClient\ObjectSerializer;
 
 /**
  * QualificationResponse Class Doc Comment
  *
  * @category Class
- * @package  Swagger\Client
+ * @package  QualificationClient
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -64,7 +64,7 @@ class QualificationResponse implements ModelInterface, ArrayAccess
         'lc_tgt' => 'string',
         'rank' => 'string',
         'status' => 'string',
-        'user' => '\Swagger\Client\Model\QualificationResponseUser',
+        'user' => '\QualificationClient\Model\QualificationResponseUser',
         'certificate' => 'string',
         'type' => 'string',
         'mtime' => '\DateTime',
@@ -511,7 +511,7 @@ class QualificationResponse implements ModelInterface, ArrayAccess
     /**
      * Gets user
      *
-     * @return \Swagger\Client\Model\QualificationResponseUser
+     * @return \QualificationClient\Model\QualificationResponseUser
      */
     public function getUser()
     {
@@ -521,7 +521,7 @@ class QualificationResponse implements ModelInterface, ArrayAccess
     /**
      * Sets user
      *
-     * @param \Swagger\Client\Model\QualificationResponseUser $user user
+     * @param \QualificationClient\Model\QualificationResponseUser $user user
      *
      * @return $this
      */

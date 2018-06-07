@@ -1,11 +1,11 @@
 <?php
 /**
- * WorkerRequest
+ * WorkerResponse
  *
  * PHP version 5
  *
  * @category Class
- * @package  Swagger\Client
+ * @package  QualificationClient
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -27,20 +27,20 @@
  * Do not edit the class manually.
  */
 
-namespace Swagger\Client\Model;
+namespace QualificationClient\Model;
 
 use \ArrayAccess;
-use \Swagger\Client\ObjectSerializer;
+use \QualificationClient\ObjectSerializer;
 
 /**
- * WorkerRequest Class Doc Comment
+ * WorkerResponse Class Doc Comment
  *
  * @category Class
- * @package  Swagger\Client
+ * @package  QualificationClient
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class WorkerRequest implements ModelInterface, ArrayAccess
+class WorkerResponse implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class WorkerRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'WorkerRequest';
+    protected static $swaggerModelName = 'WorkerResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,7 +57,8 @@ class WorkerRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'user_id' => 'int'
+        'user_id' => 'int',
+        'ctime' => '\DateTime'
     ];
 
     /**
@@ -66,7 +67,8 @@ class WorkerRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'user_id' => null
+        'user_id' => null,
+        'ctime' => 'date-time'
     ];
 
     /**
@@ -96,7 +98,8 @@ class WorkerRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'user_id' => 'user_id'
+        'user_id' => 'user_id',
+        'ctime' => 'ctime'
     ];
 
     /**
@@ -105,7 +108,8 @@ class WorkerRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'user_id' => 'setUserId'
+        'user_id' => 'setUserId',
+        'ctime' => 'setCtime'
     ];
 
     /**
@@ -114,7 +118,8 @@ class WorkerRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'user_id' => 'getUserId'
+        'user_id' => 'getUserId',
+        'ctime' => 'getCtime'
     ];
 
     /**
@@ -178,6 +183,7 @@ class WorkerRequest implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['user_id'] = isset($data['user_id']) ? $data['user_id'] : null;
+        $this->container['ctime'] = isset($data['ctime']) ? $data['ctime'] : null;
     }
 
     /**
@@ -224,6 +230,30 @@ class WorkerRequest implements ModelInterface, ArrayAccess
     public function setUserId($user_id)
     {
         $this->container['user_id'] = $user_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets ctime
+     *
+     * @return \DateTime
+     */
+    public function getCtime()
+    {
+        return $this->container['ctime'];
+    }
+
+    /**
+     * Sets ctime
+     *
+     * @param \DateTime $ctime ctime
+     *
+     * @return $this
+     */
+    public function setCtime($ctime)
+    {
+        $this->container['ctime'] = $ctime;
 
         return $this;
     }
