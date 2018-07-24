@@ -5,7 +5,10 @@ All URIs are relative to *http://localhost*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**createWorkerQualification**](QualificationApi.md#createWorkerQualification) | **POST** /workers/{worker_id}/qualifications/{qualification_type} | Create a new qualification
+[**getQualificationTypes**](QualificationApi.md#getQualificationTypes) | **GET** /qualifications | Get all types of qualifications
 [**getQualifications**](QualificationApi.md#getQualifications) | **GET** /qualifications/{qualification_type}/workers | Get all qualifications of the given qualification type
+[**revokeWorkerQualification**](QualificationApi.md#revokeWorkerQualification) | **PATCH** /workers/qualifications/revoke | Revoke worker qualification
+[**unrevokeWorkerQualification**](QualificationApi.md#unrevokeWorkerQualification) | **PATCH** /workers/qualifications/unrevoke | Unrevoke worker qualification
 [**updateWorkerQualification**](QualificationApi.md#updateWorkerQualification) | **PATCH** /workers/{worker_id}/qualifications/{qualification_type}/{qualification_id} | Update qualification
 
 
@@ -58,6 +61,51 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **getQualificationTypes**
+> \QualificationClient\Model\QualificationTypeResponse[] getQualificationTypes()
+
+Get all types of qualifications
+
+
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+$apiInstance = new QualificationClient\Api\QualificationApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+
+try {
+    $result = $apiInstance->getQualificationTypes();
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling QualificationApi->getQualificationTypes: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**\QualificationClient\Model\QualificationTypeResponse[]**](../Model/QualificationTypeResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
@@ -127,6 +175,104 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **revokeWorkerQualification**
+> \QualificationClient\Model\QualificationResponse[] revokeWorkerQualification($qualification)
+
+Revoke worker qualification
+
+Revoke worker qualification
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+$apiInstance = new QualificationClient\Api\QualificationApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$qualification = array(new \QualificationClient\Model\RevokeQualificationRequest()); // \QualificationClient\Model\RevokeQualificationRequest[] | 
+
+try {
+    $result = $apiInstance->revokeWorkerQualification($qualification);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling QualificationApi->revokeWorkerQualification: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **qualification** | [**\QualificationClient\Model\RevokeQualificationRequest[]**](../Model/RevokeQualificationRequest.md)|  |
+
+### Return type
+
+[**\QualificationClient\Model\QualificationResponse[]**](../Model/QualificationResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **unrevokeWorkerQualification**
+> \QualificationClient\Model\QualificationResponse[] unrevokeWorkerQualification($qualification)
+
+Unrevoke worker qualification
+
+Unrevoke worker qualification
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+$apiInstance = new QualificationClient\Api\QualificationApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$qualification = array(new \QualificationClient\Model\UnrevokeQualificationRequest()); // \QualificationClient\Model\UnrevokeQualificationRequest[] | 
+
+try {
+    $result = $apiInstance->unrevokeWorkerQualification($qualification);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling QualificationApi->unrevokeWorkerQualification: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **qualification** | [**\QualificationClient\Model\UnrevokeQualificationRequest[]**](../Model/UnrevokeQualificationRequest.md)|  |
+
+### Return type
+
+[**\QualificationClient\Model\QualificationResponse[]**](../Model/QualificationResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)

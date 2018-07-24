@@ -56,20 +56,19 @@ Please follow the [installation procedure](#installation--usage) and then run th
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiInstance = new QualificationClient\Api\QualificationApi(
+$apiInstance = new QualificationClient\Api\CustomerApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$worker_id = 56; // int | ID of a worker
-$qualification_type = "qualification_type_example"; // string | Qualification type.
-$qualification = new \QualificationClient\Model\PostQualificationRequest(); // \QualificationClient\Model\PostQualificationRequest | 
+$user_id = 56; // int | Customer user ID.
+$preferred_translators = array(new \QualificationClient\Model\PreferredTranslatorRequest()); // \QualificationClient\Model\PreferredTranslatorRequest[] | 
 
 try {
-    $result = $apiInstance->createWorkerQualification($worker_id, $qualification_type, $qualification);
+    $result = $apiInstance->addPreferredTranslators($user_id, $preferred_translators);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling QualificationApi->createWorkerQualification: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling CustomerApi->addPreferredTranslators: ', $e->getMessage(), PHP_EOL;
 }
 
 ?>
@@ -81,33 +80,38 @@ All URIs are relative to *http://localhost*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
+*CustomerApi* | [**addPreferredTranslators**](docs/Api/CustomerApi.md#addpreferredtranslators) | **PATCH** /customer/{user_id}/translators/add_preferred | Add preferred translators
+*CustomerApi* | [**removePreferredTranslators**](docs/Api/CustomerApi.md#removepreferredtranslators) | **PATCH** /customer/{user_id}/translators/remove_preferred | Remove preferred translators
 *QualificationApi* | [**createWorkerQualification**](docs/Api/QualificationApi.md#createworkerqualification) | **POST** /workers/{worker_id}/qualifications/{qualification_type} | Create a new qualification
+*QualificationApi* | [**getQualificationTypes**](docs/Api/QualificationApi.md#getqualificationtypes) | **GET** /qualifications | Get all types of qualifications
 *QualificationApi* | [**getQualifications**](docs/Api/QualificationApi.md#getqualifications) | **GET** /qualifications/{qualification_type}/workers | Get all qualifications of the given qualification type
+*QualificationApi* | [**revokeWorkerQualification**](docs/Api/QualificationApi.md#revokeworkerqualification) | **PATCH** /workers/qualifications/revoke | Revoke worker qualification
+*QualificationApi* | [**unrevokeWorkerQualification**](docs/Api/QualificationApi.md#unrevokeworkerqualification) | **PATCH** /workers/qualifications/unrevoke | Unrevoke worker qualification
 *QualificationApi* | [**updateWorkerQualification**](docs/Api/QualificationApi.md#updateworkerqualification) | **PATCH** /workers/{worker_id}/qualifications/{qualification_type}/{qualification_id} | Update qualification
-*QualificationTypeApi* | [**createWorkerQualification**](docs/Api/QualificationTypeApi.md#createworkerqualification) | **POST** /workers/{worker_id}/qualifications/{qualification_type} | Create a new qualification
-*QualificationTypeApi* | [**getQualificationTypes**](docs/Api/QualificationTypeApi.md#getqualificationtypes) | **GET** /qualifications | Get all types of qualifications
-*QualificationTypeApi* | [**updateWorkerQualification**](docs/Api/QualificationTypeApi.md#updateworkerqualification) | **PATCH** /workers/{worker_id}/qualifications/{qualification_type}/{qualification_id} | Update qualification
 *StatusApi* | [**getStatus**](docs/Api/StatusApi.md#getstatus) | **GET** /status | Returns the API version
 *WorkerApi* | [**createWorker**](docs/Api/WorkerApi.md#createworker) | **POST** /workers | Create a new worker
-*WorkerApi* | [**createWorkerQualification**](docs/Api/WorkerApi.md#createworkerqualification) | **POST** /workers/{worker_id}/qualifications/{qualification_type} | Create a new qualification
-*WorkerApi* | [**updateWorkerQualification**](docs/Api/WorkerApi.md#updateworkerqualification) | **PATCH** /workers/{worker_id}/qualifications/{qualification_type}/{qualification_id} | Update qualification
+*WorkerApi* | [**getWorkerQualifications**](docs/Api/WorkerApi.md#getworkerqualifications) | **GET** /workers/{worker_id}/qualifications | Get worker qualifications
 
 
 ## Documentation For Models
 
  - [BadRequest](docs/Model/BadRequest.md)
+ - [IDCollectionRequest](docs/Model/IDCollectionRequest.md)
  - [InlineResponse200](docs/Model/InlineResponse200.md)
+ - [PreferredTranslatorRequest](docs/Model/PreferredTranslatorRequest.md)
  - [QualificationRequest](docs/Model/QualificationRequest.md)
  - [QualificationResponse](docs/Model/QualificationResponse.md)
  - [QualificationResponseUser](docs/Model/QualificationResponseUser.md)
  - [QualificationTypeResponse](docs/Model/QualificationTypeResponse.md)
  - [Ranks](docs/Model/Ranks.md)
+ - [RevokeQualificationRequest](docs/Model/RevokeQualificationRequest.md)
  - [Status](docs/Model/Status.md)
  - [UserResponse](docs/Model/UserResponse.md)
  - [WorkerQualificationResponse](docs/Model/WorkerQualificationResponse.md)
  - [WorkerRequest](docs/Model/WorkerRequest.md)
  - [WorkerResponse](docs/Model/WorkerResponse.md)
  - [PostQualificationRequest](docs/Model/PostQualificationRequest.md)
+ - [UnrevokeQualificationRequest](docs/Model/UnrevokeQualificationRequest.md)
 
 
 ## Documentation For Authorization

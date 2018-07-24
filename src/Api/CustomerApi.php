@@ -1,6 +1,6 @@
 <?php
 /**
- * WorkerApi
+ * CustomerApi
  * PHP version 5
  *
  * @category Class
@@ -40,14 +40,14 @@ use QualificationClient\HeaderSelector;
 use QualificationClient\ObjectSerializer;
 
 /**
- * WorkerApi Class Doc Comment
+ * CustomerApi Class Doc Comment
  *
  * @category Class
  * @package  QualificationClient
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class WorkerApi
+class CustomerApi
 {
     /**
      * @var ClientInterface
@@ -88,37 +88,39 @@ class WorkerApi
     }
 
     /**
-     * Operation createWorker
+     * Operation addPreferredTranslators
      *
-     * Create a new worker
+     * Add preferred translators
      *
-     * @param  \QualificationClient\Model\WorkerRequest $worker worker (required)
+     * @param  int $user_id Customer user ID. (required)
+     * @param  \QualificationClient\Model\PreferredTranslatorRequest[] $preferred_translators preferred_translators (required)
      *
      * @throws \QualificationClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \QualificationClient\Model\WorkerResponse
+     * @return \QualificationClient\Model\QualificationResponse[]
      */
-    public function createWorker($worker)
+    public function addPreferredTranslators($user_id, $preferred_translators)
     {
-        list($response) = $this->createWorkerWithHttpInfo($worker);
+        list($response) = $this->addPreferredTranslatorsWithHttpInfo($user_id, $preferred_translators);
         return $response;
     }
 
     /**
-     * Operation createWorkerWithHttpInfo
+     * Operation addPreferredTranslatorsWithHttpInfo
      *
-     * Create a new worker
+     * Add preferred translators
      *
-     * @param  \QualificationClient\Model\WorkerRequest $worker (required)
+     * @param  int $user_id Customer user ID. (required)
+     * @param  \QualificationClient\Model\PreferredTranslatorRequest[] $preferred_translators (required)
      *
      * @throws \QualificationClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \QualificationClient\Model\WorkerResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \QualificationClient\Model\QualificationResponse[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function createWorkerWithHttpInfo($worker)
+    public function addPreferredTranslatorsWithHttpInfo($user_id, $preferred_translators)
     {
-        $returnType = '\QualificationClient\Model\WorkerResponse';
-        $request = $this->createWorkerRequest($worker);
+        $returnType = '\QualificationClient\Model\QualificationResponse[]';
+        $request = $this->addPreferredTranslatorsRequest($user_id, $preferred_translators);
 
         try {
             $options = $this->createHttpClientOption();
@@ -169,264 +171,15 @@ class WorkerApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\QualificationClient\Model\WorkerResponse',
+                        '\QualificationClient\Model\QualificationResponse[]',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
                     break;
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation createWorkerAsync
-     *
-     * Create a new worker
-     *
-     * @param  \QualificationClient\Model\WorkerRequest $worker (required)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function createWorkerAsync($worker)
-    {
-        return $this->createWorkerAsyncWithHttpInfo($worker)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation createWorkerAsyncWithHttpInfo
-     *
-     * Create a new worker
-     *
-     * @param  \QualificationClient\Model\WorkerRequest $worker (required)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function createWorkerAsyncWithHttpInfo($worker)
-    {
-        $returnType = '\QualificationClient\Model\WorkerResponse';
-        $request = $this->createWorkerRequest($worker);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    $responseBody = $response->getBody();
-                    if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = $responseBody->getContents();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'createWorker'
-     *
-     * @param  \QualificationClient\Model\WorkerRequest $worker (required)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    protected function createWorkerRequest($worker)
-    {
-        // verify the required parameter 'worker' is set
-        if ($worker === null || (is_array($worker) && count($worker) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $worker when calling createWorker'
-            );
-        }
-
-        $resourcePath = '/workers';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-
-
-        // body params
-        $_tempBody = null;
-        if (isset($worker)) {
-            $_tempBody = $worker;
-        }
-
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json'],
-                ['application/json']
-            );
-        }
-
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            $httpBody = $_tempBody;
-            // \stdClass has no __toString(), so we should encode it manually
-            if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($httpBody);
-            }
-        } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($formParams);
-
-            } else {
-                // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
-            }
-        }
-
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
-        return new Request(
-            'POST',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation getWorkerQualifications
-     *
-     * Get worker qualifications
-     *
-     * @param  string $qualification_type Qualification type. (required)
-     *
-     * @throws \QualificationClient\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return \QualificationClient\Model\WorkerQualificationResponse[]
-     */
-    public function getWorkerQualifications($qualification_type)
-    {
-        list($response) = $this->getWorkerQualificationsWithHttpInfo($qualification_type);
-        return $response;
-    }
-
-    /**
-     * Operation getWorkerQualificationsWithHttpInfo
-     *
-     * Get worker qualifications
-     *
-     * @param  string $qualification_type Qualification type. (required)
-     *
-     * @throws \QualificationClient\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array of \QualificationClient\Model\WorkerQualificationResponse[], HTTP status code, HTTP response headers (array of strings)
-     */
-    public function getWorkerQualificationsWithHttpInfo($qualification_type)
-    {
-        $returnType = '\QualificationClient\Model\WorkerQualificationResponse[]';
-        $request = $this->getWorkerQualificationsRequest($qualification_type);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
-                );
-            }
-
-            $responseBody = $response->getBody();
-            if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
-            } else {
-                $content = $responseBody->getContents();
-                if ($returnType !== 'string') {
-                    $content = json_decode($content);
-                }
-            }
-
-            return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
+                case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\QualificationClient\Model\WorkerQualificationResponse[]',
+                        '\QualificationClient\Model\BadRequest',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -437,18 +190,19 @@ class WorkerApi
     }
 
     /**
-     * Operation getWorkerQualificationsAsync
+     * Operation addPreferredTranslatorsAsync
      *
-     * Get worker qualifications
+     * Add preferred translators
      *
-     * @param  string $qualification_type Qualification type. (required)
+     * @param  int $user_id Customer user ID. (required)
+     * @param  \QualificationClient\Model\PreferredTranslatorRequest[] $preferred_translators (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getWorkerQualificationsAsync($qualification_type)
+    public function addPreferredTranslatorsAsync($user_id, $preferred_translators)
     {
-        return $this->getWorkerQualificationsAsyncWithHttpInfo($qualification_type)
+        return $this->addPreferredTranslatorsAsyncWithHttpInfo($user_id, $preferred_translators)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -457,19 +211,20 @@ class WorkerApi
     }
 
     /**
-     * Operation getWorkerQualificationsAsyncWithHttpInfo
+     * Operation addPreferredTranslatorsAsyncWithHttpInfo
      *
-     * Get worker qualifications
+     * Add preferred translators
      *
-     * @param  string $qualification_type Qualification type. (required)
+     * @param  int $user_id Customer user ID. (required)
+     * @param  \QualificationClient\Model\PreferredTranslatorRequest[] $preferred_translators (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getWorkerQualificationsAsyncWithHttpInfo($qualification_type)
+    public function addPreferredTranslatorsAsyncWithHttpInfo($user_id, $preferred_translators)
     {
-        $returnType = '\QualificationClient\Model\WorkerQualificationResponse[]';
-        $request = $this->getWorkerQualificationsRequest($qualification_type);
+        $returnType = '\QualificationClient\Model\QualificationResponse[]';
+        $request = $this->addPreferredTranslatorsRequest($user_id, $preferred_translators);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -509,23 +264,30 @@ class WorkerApi
     }
 
     /**
-     * Create request for operation 'getWorkerQualifications'
+     * Create request for operation 'addPreferredTranslators'
      *
-     * @param  string $qualification_type Qualification type. (required)
+     * @param  int $user_id Customer user ID. (required)
+     * @param  \QualificationClient\Model\PreferredTranslatorRequest[] $preferred_translators (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getWorkerQualificationsRequest($qualification_type)
+    protected function addPreferredTranslatorsRequest($user_id, $preferred_translators)
     {
-        // verify the required parameter 'qualification_type' is set
-        if ($qualification_type === null || (is_array($qualification_type) && count($qualification_type) === 0)) {
+        // verify the required parameter 'user_id' is set
+        if ($user_id === null || (is_array($user_id) && count($user_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $qualification_type when calling getWorkerQualifications'
+                'Missing the required parameter $user_id when calling addPreferredTranslators'
+            );
+        }
+        // verify the required parameter 'preferred_translators' is set
+        if ($preferred_translators === null || (is_array($preferred_translators) && count($preferred_translators) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $preferred_translators when calling addPreferredTranslators'
             );
         }
 
-        $resourcePath = '/workers/{worker_id}/qualifications';
+        $resourcePath = '/customer/{user_id}/translators/add_preferred';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -534,16 +296,19 @@ class WorkerApi
 
 
         // path params
-        if ($qualification_type !== null) {
+        if ($user_id !== null) {
             $resourcePath = str_replace(
-                '{' . 'qualification_type' . '}',
-                ObjectSerializer::toPathValue($qualification_type),
+                '{' . 'user_id' . '}',
+                ObjectSerializer::toPathValue($user_id),
                 $resourcePath
             );
         }
 
         // body params
         $_tempBody = null;
+        if (isset($preferred_translators)) {
+            $_tempBody = $preferred_translators;
+        }
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
@@ -599,7 +364,291 @@ class WorkerApi
 
         $query = \GuzzleHttp\Psr7\build_query($queryParams);
         return new Request(
-            'GET',
+            'PATCH',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation removePreferredTranslators
+     *
+     * Remove preferred translators
+     *
+     * @param  int $user_id Customer user ID. (required)
+     * @param  \QualificationClient\Model\IDCollectionRequest $ids ids (required)
+     *
+     * @throws \QualificationClient\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \QualificationClient\Model\QualificationResponse[]
+     */
+    public function removePreferredTranslators($user_id, $ids)
+    {
+        list($response) = $this->removePreferredTranslatorsWithHttpInfo($user_id, $ids);
+        return $response;
+    }
+
+    /**
+     * Operation removePreferredTranslatorsWithHttpInfo
+     *
+     * Remove preferred translators
+     *
+     * @param  int $user_id Customer user ID. (required)
+     * @param  \QualificationClient\Model\IDCollectionRequest $ids (required)
+     *
+     * @throws \QualificationClient\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \QualificationClient\Model\QualificationResponse[], HTTP status code, HTTP response headers (array of strings)
+     */
+    public function removePreferredTranslatorsWithHttpInfo($user_id, $ids)
+    {
+        $returnType = '\QualificationClient\Model\QualificationResponse[]';
+        $request = $this->removePreferredTranslatorsRequest($user_id, $ids);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\QualificationClient\Model\QualificationResponse[]',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\QualificationClient\Model\BadRequest',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation removePreferredTranslatorsAsync
+     *
+     * Remove preferred translators
+     *
+     * @param  int $user_id Customer user ID. (required)
+     * @param  \QualificationClient\Model\IDCollectionRequest $ids (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function removePreferredTranslatorsAsync($user_id, $ids)
+    {
+        return $this->removePreferredTranslatorsAsyncWithHttpInfo($user_id, $ids)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation removePreferredTranslatorsAsyncWithHttpInfo
+     *
+     * Remove preferred translators
+     *
+     * @param  int $user_id Customer user ID. (required)
+     * @param  \QualificationClient\Model\IDCollectionRequest $ids (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function removePreferredTranslatorsAsyncWithHttpInfo($user_id, $ids)
+    {
+        $returnType = '\QualificationClient\Model\QualificationResponse[]';
+        $request = $this->removePreferredTranslatorsRequest($user_id, $ids);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'removePreferredTranslators'
+     *
+     * @param  int $user_id Customer user ID. (required)
+     * @param  \QualificationClient\Model\IDCollectionRequest $ids (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function removePreferredTranslatorsRequest($user_id, $ids)
+    {
+        // verify the required parameter 'user_id' is set
+        if ($user_id === null || (is_array($user_id) && count($user_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $user_id when calling removePreferredTranslators'
+            );
+        }
+        // verify the required parameter 'ids' is set
+        if ($ids === null || (is_array($ids) && count($ids) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $ids when calling removePreferredTranslators'
+            );
+        }
+
+        $resourcePath = '/customer/{user_id}/translators/remove_preferred';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+        // path params
+        if ($user_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'user_id' . '}',
+                ObjectSerializer::toPathValue($user_id),
+                $resourcePath
+            );
+        }
+
+        // body params
+        $_tempBody = null;
+        if (isset($ids)) {
+            $_tempBody = $ids;
+        }
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            $httpBody = $_tempBody;
+            // \stdClass has no __toString(), so we should encode it manually
+            if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($httpBody);
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'PATCH',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
