@@ -1,6 +1,6 @@
 <?php
 /**
- * QualificationTypeResponse
+ * IDCollectionRequest
  *
  * PHP version 5
  *
@@ -33,14 +33,14 @@ use \ArrayAccess;
 use \QualificationClient\ObjectSerializer;
 
 /**
- * QualificationTypeResponse Class Doc Comment
+ * IDCollectionRequest Class Doc Comment
  *
  * @category Class
  * @package  QualificationClient
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class QualificationTypeResponse implements ModelInterface, ArrayAccess
+class IDCollectionRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class QualificationTypeResponse implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'QualificationTypeResponse';
+    protected static $swaggerModelName = 'IDCollectionRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,10 +57,7 @@ class QualificationTypeResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'id' => 'int',
-        'type' => 'string',
-        'name' => 'string',
-        'fields' => 'string[]'
+        'ids' => 'int[]'
     ];
 
     /**
@@ -69,10 +66,7 @@ class QualificationTypeResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'id' => null,
-        'type' => null,
-        'name' => null,
-        'fields' => null
+        'ids' => null
     ];
 
     /**
@@ -102,10 +96,7 @@ class QualificationTypeResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'id' => 'id',
-        'type' => 'type',
-        'name' => 'name',
-        'fields' => 'fields'
+        'ids' => 'ids'
     ];
 
     /**
@@ -114,10 +105,7 @@ class QualificationTypeResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'id' => 'setId',
-        'type' => 'setType',
-        'name' => 'setName',
-        'fields' => 'setFields'
+        'ids' => 'setIds'
     ];
 
     /**
@@ -126,10 +114,7 @@ class QualificationTypeResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'id' => 'getId',
-        'type' => 'getType',
-        'name' => 'getName',
-        'fields' => 'getFields'
+        'ids' => 'getIds'
     ];
 
     /**
@@ -192,10 +177,7 @@ class QualificationTypeResponse implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
-        $this->container['type'] = isset($data['type']) ? $data['type'] : null;
-        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
-        $this->container['fields'] = isset($data['fields']) ? $data['fields'] : null;
+        $this->container['ids'] = isset($data['ids']) ? $data['ids'] : null;
     }
 
     /**
@@ -223,97 +205,25 @@ class QualificationTypeResponse implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets id
+     * Gets ids
      *
-     * @return int
+     * @return int[]
      */
-    public function getId()
+    public function getIds()
     {
-        return $this->container['id'];
+        return $this->container['ids'];
     }
 
     /**
-     * Sets id
+     * Sets ids
      *
-     * @param int $id id
+     * @param int[] $ids List of IDs
      *
      * @return $this
      */
-    public function setId($id)
+    public function setIds($ids)
     {
-        $this->container['id'] = $id;
-
-        return $this;
-    }
-
-    /**
-     * Gets type
-     *
-     * @return string
-     */
-    public function getType()
-    {
-        return $this->container['type'];
-    }
-
-    /**
-     * Sets type
-     *
-     * @param string $type The qualification type
-     *
-     * @return $this
-     */
-    public function setType($type)
-    {
-        $this->container['type'] = $type;
-
-        return $this;
-    }
-
-    /**
-     * Gets name
-     *
-     * @return string
-     */
-    public function getName()
-    {
-        return $this->container['name'];
-    }
-
-    /**
-     * Sets name
-     *
-     * @param string $name The normalized name of qualification type
-     *
-     * @return $this
-     */
-    public function setName($name)
-    {
-        $this->container['name'] = $name;
-
-        return $this;
-    }
-
-    /**
-     * Gets fields
-     *
-     * @return string[]
-     */
-    public function getFields()
-    {
-        return $this->container['fields'];
-    }
-
-    /**
-     * Sets fields
-     *
-     * @param string[] $fields The fields needed for creating/updating qualification type
-     *
-     * @return $this
-     */
-    public function setFields($fields)
-    {
-        $this->container['fields'] = $fields;
+        $this->container['ids'] = $ids;
 
         return $this;
     }

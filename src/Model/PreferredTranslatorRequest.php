@@ -1,6 +1,6 @@
 <?php
 /**
- * QualificationTypeResponse
+ * PreferredTranslatorRequest
  *
  * PHP version 5
  *
@@ -33,14 +33,14 @@ use \ArrayAccess;
 use \QualificationClient\ObjectSerializer;
 
 /**
- * QualificationTypeResponse Class Doc Comment
+ * PreferredTranslatorRequest Class Doc Comment
  *
  * @category Class
  * @package  QualificationClient
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class QualificationTypeResponse implements ModelInterface, ArrayAccess
+class PreferredTranslatorRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class QualificationTypeResponse implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'QualificationTypeResponse';
+    protected static $swaggerModelName = 'PreferredTranslatorRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,10 +57,10 @@ class QualificationTypeResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'id' => 'int',
-        'type' => 'string',
-        'name' => 'string',
-        'fields' => 'string[]'
+        'lc_src' => 'string',
+        'lc_tgt' => 'string',
+        'rank' => 'string',
+        'ids' => 'int[]'
     ];
 
     /**
@@ -69,10 +69,10 @@ class QualificationTypeResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'id' => null,
-        'type' => null,
-        'name' => null,
-        'fields' => null
+        'lc_src' => null,
+        'lc_tgt' => null,
+        'rank' => null,
+        'ids' => null
     ];
 
     /**
@@ -102,10 +102,10 @@ class QualificationTypeResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'id' => 'id',
-        'type' => 'type',
-        'name' => 'name',
-        'fields' => 'fields'
+        'lc_src' => 'lc_src',
+        'lc_tgt' => 'lc_tgt',
+        'rank' => 'rank',
+        'ids' => 'ids'
     ];
 
     /**
@@ -114,10 +114,10 @@ class QualificationTypeResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'id' => 'setId',
-        'type' => 'setType',
-        'name' => 'setName',
-        'fields' => 'setFields'
+        'lc_src' => 'setLcSrc',
+        'lc_tgt' => 'setLcTgt',
+        'rank' => 'setRank',
+        'ids' => 'setIds'
     ];
 
     /**
@@ -126,10 +126,10 @@ class QualificationTypeResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'id' => 'getId',
-        'type' => 'getType',
-        'name' => 'getName',
-        'fields' => 'getFields'
+        'lc_src' => 'getLcSrc',
+        'lc_tgt' => 'getLcTgt',
+        'rank' => 'getRank',
+        'ids' => 'getIds'
     ];
 
     /**
@@ -173,8 +173,29 @@ class QualificationTypeResponse implements ModelInterface, ArrayAccess
         return self::$swaggerModelName;
     }
 
+    const RANK_PRO = 'pro';
+    const RANK_STANDARD = 'standard';
+    const RANK_UNTESTED = 'untested';
+    const RANK_PROOFREAD = 'proofread';
+    const RANK_SUPER_WORKER = 'super_worker';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getRankAllowableValues()
+    {
+        return [
+            self::RANK_PRO,
+            self::RANK_STANDARD,
+            self::RANK_UNTESTED,
+            self::RANK_PROOFREAD,
+            self::RANK_SUPER_WORKER,
+        ];
+    }
     
 
     /**
@@ -192,10 +213,10 @@ class QualificationTypeResponse implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
-        $this->container['type'] = isset($data['type']) ? $data['type'] : null;
-        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
-        $this->container['fields'] = isset($data['fields']) ? $data['fields'] : null;
+        $this->container['lc_src'] = isset($data['lc_src']) ? $data['lc_src'] : null;
+        $this->container['lc_tgt'] = isset($data['lc_tgt']) ? $data['lc_tgt'] : null;
+        $this->container['rank'] = isset($data['rank']) ? $data['rank'] : null;
+        $this->container['ids'] = isset($data['ids']) ? $data['ids'] : null;
     }
 
     /**
@@ -206,6 +227,14 @@ class QualificationTypeResponse implements ModelInterface, ArrayAccess
     public function listInvalidProperties()
     {
         $invalidProperties = [];
+
+        $allowedValues = $this->getRankAllowableValues();
+        if (!is_null($this->container['rank']) && !in_array($this->container['rank'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'rank', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
 
         return $invalidProperties;
     }
@@ -223,97 +252,106 @@ class QualificationTypeResponse implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets id
-     *
-     * @return int
-     */
-    public function getId()
-    {
-        return $this->container['id'];
-    }
-
-    /**
-     * Sets id
-     *
-     * @param int $id id
-     *
-     * @return $this
-     */
-    public function setId($id)
-    {
-        $this->container['id'] = $id;
-
-        return $this;
-    }
-
-    /**
-     * Gets type
+     * Gets lc_src
      *
      * @return string
      */
-    public function getType()
+    public function getLcSrc()
     {
-        return $this->container['type'];
+        return $this->container['lc_src'];
     }
 
     /**
-     * Sets type
+     * Sets lc_src
      *
-     * @param string $type The qualification type
+     * @param string $lc_src lc_src
      *
      * @return $this
      */
-    public function setType($type)
+    public function setLcSrc($lc_src)
     {
-        $this->container['type'] = $type;
+        $this->container['lc_src'] = $lc_src;
 
         return $this;
     }
 
     /**
-     * Gets name
+     * Gets lc_tgt
      *
      * @return string
      */
-    public function getName()
+    public function getLcTgt()
     {
-        return $this->container['name'];
+        return $this->container['lc_tgt'];
     }
 
     /**
-     * Sets name
+     * Sets lc_tgt
      *
-     * @param string $name The normalized name of qualification type
+     * @param string $lc_tgt lc_tgt
      *
      * @return $this
      */
-    public function setName($name)
+    public function setLcTgt($lc_tgt)
     {
-        $this->container['name'] = $name;
+        $this->container['lc_tgt'] = $lc_tgt;
 
         return $this;
     }
 
     /**
-     * Gets fields
+     * Gets rank
      *
-     * @return string[]
+     * @return string
      */
-    public function getFields()
+    public function getRank()
     {
-        return $this->container['fields'];
+        return $this->container['rank'];
     }
 
     /**
-     * Sets fields
+     * Sets rank
      *
-     * @param string[] $fields The fields needed for creating/updating qualification type
+     * @param string $rank Rank of translator
      *
      * @return $this
      */
-    public function setFields($fields)
+    public function setRank($rank)
     {
-        $this->container['fields'] = $fields;
+        $allowedValues = $this->getRankAllowableValues();
+        if (!is_null($rank) && !in_array($rank, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'rank', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['rank'] = $rank;
+
+        return $this;
+    }
+
+    /**
+     * Gets ids
+     *
+     * @return int[]
+     */
+    public function getIds()
+    {
+        return $this->container['ids'];
+    }
+
+    /**
+     * Sets ids
+     *
+     * @param int[] $ids List of IDs
+     *
+     * @return $this
+     */
+    public function setIds($ids)
+    {
+        $this->container['ids'] = $ids;
 
         return $this;
     }
