@@ -93,7 +93,7 @@ class CustomerApi
      * Add preferred translators
      *
      * @param  int $user_id Customer user ID. (required)
-     * @param  \QualificationClient\Model\PreferredTranslatorRequest[] $preferred_translators preferred_translators (required)
+     * @param  \QualificationClient\Model\PreferredTranslators $preferred_translators preferred_translators (required)
      *
      * @throws \QualificationClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -111,7 +111,7 @@ class CustomerApi
      * Add preferred translators
      *
      * @param  int $user_id Customer user ID. (required)
-     * @param  \QualificationClient\Model\PreferredTranslatorRequest[] $preferred_translators (required)
+     * @param  \QualificationClient\Model\PreferredTranslators $preferred_translators (required)
      *
      * @throws \QualificationClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -195,7 +195,7 @@ class CustomerApi
      * Add preferred translators
      *
      * @param  int $user_id Customer user ID. (required)
-     * @param  \QualificationClient\Model\PreferredTranslatorRequest[] $preferred_translators (required)
+     * @param  \QualificationClient\Model\PreferredTranslators $preferred_translators (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -216,7 +216,7 @@ class CustomerApi
      * Add preferred translators
      *
      * @param  int $user_id Customer user ID. (required)
-     * @param  \QualificationClient\Model\PreferredTranslatorRequest[] $preferred_translators (required)
+     * @param  \QualificationClient\Model\PreferredTranslators $preferred_translators (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -267,7 +267,7 @@ class CustomerApi
      * Create request for operation 'addPreferredTranslators'
      *
      * @param  int $user_id Customer user ID. (required)
-     * @param  \QualificationClient\Model\PreferredTranslatorRequest[] $preferred_translators (required)
+     * @param  \QualificationClient\Model\PreferredTranslators $preferred_translators (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request

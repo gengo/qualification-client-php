@@ -26,7 +26,7 @@ $apiInstance = new QualificationClient\Api\CustomerApi(
     new GuzzleHttp\Client()
 );
 $user_id = 56; // int | Customer user ID.
-$preferred_translators = array(new \QualificationClient\Model\PreferredTranslatorRequest()); // \QualificationClient\Model\PreferredTranslatorRequest[] | 
+$preferred_translators = new \QualificationClient\Model\PreferredTranslators(); // \QualificationClient\Model\PreferredTranslators | 
 
 try {
     $result = $apiInstance->addPreferredTranslators($user_id, $preferred_translators);
@@ -42,7 +42,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **user_id** | **int**| Customer user ID. |
- **preferred_translators** | [**\QualificationClient\Model\PreferredTranslatorRequest[]**](../Model/PreferredTranslatorRequest.md)|  |
+ **preferred_translators** | [**\QualificationClient\Model\PreferredTranslators**](../Model/PreferredTranslators.md)|  |
 
 ### Return type
 
