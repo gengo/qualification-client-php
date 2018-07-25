@@ -26,7 +26,7 @@ $apiInstance = new QualificationClient\Api\CustomerApi(
     new GuzzleHttp\Client()
 );
 $user_id = 56; // int | Customer user ID.
-$preferred_translators = new \QualificationClient\Model\PreferredTranslators(); // \QualificationClient\Model\PreferredTranslators | 
+$preferred_translators = new \QualificationClient\Model\null(); //  | 
 
 try {
     $result = $apiInstance->addPreferredTranslators($user_id, $preferred_translators);
@@ -42,7 +42,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **user_id** | **int**| Customer user ID. |
- **preferred_translators** | [**\QualificationClient\Model\PreferredTranslators**](../Model/PreferredTranslators.md)|  |
+ **preferred_translators** | [****](../Model/.md)|  |
 
 ### Return type
 
@@ -54,7 +54,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
@@ -105,7 +105,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
