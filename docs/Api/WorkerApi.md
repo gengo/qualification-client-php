@@ -13,6 +13,8 @@ Method | HTTP request | Description
 
 Create a new worker
 
+null
+
 ### Example
 ```php
 <?php
