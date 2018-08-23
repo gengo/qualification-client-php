@@ -60,7 +60,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **removePreferredTranslators**
-> \QualificationClient\Model\QualificationResponse[] removePreferredTranslators($user_id, $ids)
+> \QualificationClient\Model\QualificationResponse[] removePreferredTranslators($user_id, $ids, $force)
 
 Remove preferred translators
 
@@ -78,9 +78,10 @@ $apiInstance = new QualificationClient\Api\CustomerApi(
 );
 $user_id = 56; // int | Customer user ID.
 $ids = new \QualificationClient\Model\IDCollectionRequest(); // \QualificationClient\Model\IDCollectionRequest | 
+$force = new \QualificationClient\Model\null(); //  | Pemanent deletion of the preferred translators
 
 try {
-    $result = $apiInstance->removePreferredTranslators($user_id, $ids);
+    $result = $apiInstance->removePreferredTranslators($user_id, $ids, $force);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CustomerApi->removePreferredTranslators: ', $e->getMessage(), PHP_EOL;
@@ -94,6 +95,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **user_id** | **int**| Customer user ID. |
  **ids** | [**\QualificationClient\Model\IDCollectionRequest**](../Model/IDCollectionRequest.md)|  |
+ **force** | [****](../Model/.md)| Pemanent deletion of the preferred translators | [optional]
 
 ### Return type
 

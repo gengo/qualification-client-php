@@ -1,6 +1,6 @@
 <?php
 /**
- * RanksTest
+ * WorkerDomainRequestTest
  *
  * PHP version 5
  *
@@ -30,15 +30,15 @@
 namespace QualificationClient;
 
 /**
- * RanksTest Class Doc Comment
+ * WorkerDomainRequestTest Class Doc Comment
  *
  * @category    Class
- * @description Ranks
+ * @description WorkerDomainRequest
  * @package     QualificationClient
  * @author      Swagger Codegen team
  * @link        https://github.com/swagger-api/swagger-codegen
  */
-class RanksTest extends \PHPUnit_Framework_TestCase
+class WorkerDomainRequestTest extends \PHPUnit_Framework_TestCase
 {
 
     /**
@@ -70,9 +70,30 @@ class RanksTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test "Ranks"
+     * Test "WorkerDomainRequest"
      */
-    public function testRanks()
+    public function testWorkerDomainRequest()
+    {
+    }
+
+    /**
+     * Test attribute "id"
+     */
+    public function testPropertyId()
+    {
+    }
+
+    /**
+     * Test attribute "name"
+     */
+    public function testPropertyName()
+    {
+    }
+
+    /**
+     * Test attribute "ctime"
+     */
+    public function testPropertyCtime()
     {
     }
 }
