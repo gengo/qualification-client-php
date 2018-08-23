@@ -1,6 +1,6 @@
 <?php
 /**
- * InlineResponse200
+ * WorkerDomainRequest
  *
  * PHP version 5
  *
@@ -33,14 +33,14 @@ use \ArrayAccess;
 use \QualificationClient\ObjectSerializer;
 
 /**
- * InlineResponse200 Class Doc Comment
+ * WorkerDomainRequest Class Doc Comment
  *
  * @category Class
  * @package  QualificationClient
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class InlineResponse200 implements ModelInterface, ArrayAccess
+class WorkerDomainRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class InlineResponse200 implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'inline_response_200';
+    protected static $swaggerModelName = 'WorkerDomainRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,7 +57,9 @@ class InlineResponse200 implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'version' => 'string'
+        'id' => 'int',
+        'name' => 'string',
+        'ctime' => '\DateTime'
     ];
 
     /**
@@ -66,7 +68,9 @@ class InlineResponse200 implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'version' => null
+        'id' => null,
+        'name' => null,
+        'ctime' => 'date-time'
     ];
 
     /**
@@ -96,7 +100,9 @@ class InlineResponse200 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'version' => 'version'
+        'id' => 'id',
+        'name' => 'name',
+        'ctime' => 'ctime'
     ];
 
     /**
@@ -105,7 +111,9 @@ class InlineResponse200 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'version' => 'setVersion'
+        'id' => 'setId',
+        'name' => 'setName',
+        'ctime' => 'setCtime'
     ];
 
     /**
@@ -114,7 +122,9 @@ class InlineResponse200 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'version' => 'getVersion'
+        'id' => 'getId',
+        'name' => 'getName',
+        'ctime' => 'getCtime'
     ];
 
     /**
@@ -177,7 +187,9 @@ class InlineResponse200 implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['version'] = isset($data['version']) ? $data['version'] : null;
+        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
+        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
+        $this->container['ctime'] = isset($data['ctime']) ? $data['ctime'] : null;
     }
 
     /**
@@ -205,25 +217,73 @@ class InlineResponse200 implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets version
+     * Gets id
      *
-     * @return string
+     * @return int
      */
-    public function getVersion()
+    public function getId()
     {
-        return $this->container['version'];
+        return $this->container['id'];
     }
 
     /**
-     * Sets version
+     * Sets id
      *
-     * @param string $version version
+     * @param int $id id
      *
      * @return $this
      */
-    public function setVersion($version)
+    public function setId($id)
     {
-        $this->container['version'] = $version;
+        $this->container['id'] = $id;
+
+        return $this;
+    }
+
+    /**
+     * Gets name
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->container['name'];
+    }
+
+    /**
+     * Sets name
+     *
+     * @param string $name name
+     *
+     * @return $this
+     */
+    public function setName($name)
+    {
+        $this->container['name'] = $name;
+
+        return $this;
+    }
+
+    /**
+     * Gets ctime
+     *
+     * @return \DateTime
+     */
+    public function getCtime()
+    {
+        return $this->container['ctime'];
+    }
+
+    /**
+     * Sets ctime
+     *
+     * @param \DateTime $ctime ctime
+     *
+     * @return $this
+     */
+    public function setCtime($ctime)
+    {
+        $this->container['ctime'] = $ctime;
 
         return $this;
     }

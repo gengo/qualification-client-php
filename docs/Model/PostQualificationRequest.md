@@ -4,6 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **qualification_type** | **string** |  | [optional] 
+**domain_id** | **int** |  | [optional] 
 **lc_src** | **string** | Language source | [optional] 
 **lc_tgt** | **string** | Language target | [optional] 
 **rank** | **string** | Rank of qualification | [optional] 
