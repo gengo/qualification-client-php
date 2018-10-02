@@ -377,16 +377,15 @@ class CustomerApi
      * Remove preferred translators
      *
      * @param  int $user_id Customer user ID. (required)
-     * @param  \QualificationClient\Model\IDCollectionRequest $ids ids (required)
-     * @param   $force Pemanent deletion of the preferred translators (optional)
+     * @param  \QualificationClient\Model\RemovePreferredTranslatorRequest $remove_preferred_translators remove_preferred_translators (required)
      *
      * @throws \QualificationClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \QualificationClient\Model\QualificationResponse[]
      */
-    public function removePreferredTranslators($user_id, $ids, $force = null)
+    public function removePreferredTranslators($user_id, $remove_preferred_translators)
     {
-        list($response) = $this->removePreferredTranslatorsWithHttpInfo($user_id, $ids, $force);
+        list($response) = $this->removePreferredTranslatorsWithHttpInfo($user_id, $remove_preferred_translators);
         return $response;
     }
 
@@ -396,17 +395,16 @@ class CustomerApi
      * Remove preferred translators
      *
      * @param  int $user_id Customer user ID. (required)
-     * @param  \QualificationClient\Model\IDCollectionRequest $ids (required)
-     * @param   $force Pemanent deletion of the preferred translators (optional)
+     * @param  \QualificationClient\Model\RemovePreferredTranslatorRequest $remove_preferred_translators (required)
      *
      * @throws \QualificationClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \QualificationClient\Model\QualificationResponse[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function removePreferredTranslatorsWithHttpInfo($user_id, $ids, $force = null)
+    public function removePreferredTranslatorsWithHttpInfo($user_id, $remove_preferred_translators)
     {
         $returnType = '\QualificationClient\Model\QualificationResponse[]';
-        $request = $this->removePreferredTranslatorsRequest($user_id, $ids, $force);
+        $request = $this->removePreferredTranslatorsRequest($user_id, $remove_preferred_translators);
 
         try {
             $options = $this->createHttpClientOption();
@@ -481,15 +479,14 @@ class CustomerApi
      * Remove preferred translators
      *
      * @param  int $user_id Customer user ID. (required)
-     * @param  \QualificationClient\Model\IDCollectionRequest $ids (required)
-     * @param   $force Pemanent deletion of the preferred translators (optional)
+     * @param  \QualificationClient\Model\RemovePreferredTranslatorRequest $remove_preferred_translators (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function removePreferredTranslatorsAsync($user_id, $ids, $force = null)
+    public function removePreferredTranslatorsAsync($user_id, $remove_preferred_translators)
     {
-        return $this->removePreferredTranslatorsAsyncWithHttpInfo($user_id, $ids, $force)
+        return $this->removePreferredTranslatorsAsyncWithHttpInfo($user_id, $remove_preferred_translators)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -503,16 +500,15 @@ class CustomerApi
      * Remove preferred translators
      *
      * @param  int $user_id Customer user ID. (required)
-     * @param  \QualificationClient\Model\IDCollectionRequest $ids (required)
-     * @param   $force Pemanent deletion of the preferred translators (optional)
+     * @param  \QualificationClient\Model\RemovePreferredTranslatorRequest $remove_preferred_translators (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function removePreferredTranslatorsAsyncWithHttpInfo($user_id, $ids, $force = null)
+    public function removePreferredTranslatorsAsyncWithHttpInfo($user_id, $remove_preferred_translators)
     {
         $returnType = '\QualificationClient\Model\QualificationResponse[]';
-        $request = $this->removePreferredTranslatorsRequest($user_id, $ids, $force);
+        $request = $this->removePreferredTranslatorsRequest($user_id, $remove_preferred_translators);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -555,13 +551,12 @@ class CustomerApi
      * Create request for operation 'removePreferredTranslators'
      *
      * @param  int $user_id Customer user ID. (required)
-     * @param  \QualificationClient\Model\IDCollectionRequest $ids (required)
-     * @param   $force Pemanent deletion of the preferred translators (optional)
+     * @param  \QualificationClient\Model\RemovePreferredTranslatorRequest $remove_preferred_translators (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function removePreferredTranslatorsRequest($user_id, $ids, $force = null)
+    protected function removePreferredTranslatorsRequest($user_id, $remove_preferred_translators)
     {
         // verify the required parameter 'user_id' is set
         if ($user_id === null || (is_array($user_id) && count($user_id) === 0)) {
@@ -569,10 +564,10 @@ class CustomerApi
                 'Missing the required parameter $user_id when calling removePreferredTranslators'
             );
         }
-        // verify the required parameter 'ids' is set
-        if ($ids === null || (is_array($ids) && count($ids) === 0)) {
+        // verify the required parameter 'remove_preferred_translators' is set
+        if ($remove_preferred_translators === null || (is_array($remove_preferred_translators) && count($remove_preferred_translators) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $ids when calling removePreferredTranslators'
+                'Missing the required parameter $remove_preferred_translators when calling removePreferredTranslators'
             );
         }
 
@@ -595,11 +590,8 @@ class CustomerApi
 
         // body params
         $_tempBody = null;
-        if (isset($ids)) {
-            $_tempBody = $ids;
-        }
-        if (isset($force)) {
-            $_tempBody = $force;
+        if (isset($remove_preferred_translators)) {
+            $_tempBody = $remove_preferred_translators;
         }
 
         if ($multipart) {

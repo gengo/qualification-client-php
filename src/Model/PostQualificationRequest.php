@@ -63,8 +63,7 @@ class PostQualificationRequest implements ModelInterface, ArrayAccess
         'lc_tgt' => 'string',
         'rank' => 'string',
         'status' => 'string',
-        'certificate' => 'string',
-        'type' => 'string'
+        'certificate' => 'string'
     ];
 
     /**
@@ -79,8 +78,7 @@ class PostQualificationRequest implements ModelInterface, ArrayAccess
         'lc_tgt' => null,
         'rank' => null,
         'status' => null,
-        'certificate' => null,
-        'type' => null
+        'certificate' => null
     ];
 
     /**
@@ -116,8 +114,7 @@ class PostQualificationRequest implements ModelInterface, ArrayAccess
         'lc_tgt' => 'lc_tgt',
         'rank' => 'rank',
         'status' => 'status',
-        'certificate' => 'certificate',
-        'type' => 'type'
+        'certificate' => 'certificate'
     ];
 
     /**
@@ -132,8 +129,7 @@ class PostQualificationRequest implements ModelInterface, ArrayAccess
         'lc_tgt' => 'setLcTgt',
         'rank' => 'setRank',
         'status' => 'setStatus',
-        'certificate' => 'setCertificate',
-        'type' => 'setType'
+        'certificate' => 'setCertificate'
     ];
 
     /**
@@ -148,8 +144,7 @@ class PostQualificationRequest implements ModelInterface, ArrayAccess
         'lc_tgt' => 'getLcTgt',
         'rank' => 'getRank',
         'status' => 'getStatus',
-        'certificate' => 'getCertificate',
-        'type' => 'getType'
+        'certificate' => 'getCertificate'
     ];
 
     /**
@@ -255,7 +250,6 @@ class PostQualificationRequest implements ModelInterface, ArrayAccess
         $this->container['rank'] = isset($data['rank']) ? $data['rank'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
         $this->container['certificate'] = isset($data['certificate']) ? $data['certificate'] : null;
-        $this->container['type'] = isset($data['type']) ? $data['type'] : null;
     }
 
     /**
@@ -480,30 +474,6 @@ class PostQualificationRequest implements ModelInterface, ArrayAccess
     public function setCertificate($certificate)
     {
         $this->container['certificate'] = $certificate;
-
-        return $this;
-    }
-
-    /**
-     * Gets type
-     *
-     * @return string
-     */
-    public function getType()
-    {
-        return $this->container['type'];
-    }
-
-    /**
-     * Sets type
-     *
-     * @param string $type type
-     *
-     * @return $this
-     */
-    public function setType($type)
-    {
-        $this->container['type'] = $type;
 
         return $this;
     }

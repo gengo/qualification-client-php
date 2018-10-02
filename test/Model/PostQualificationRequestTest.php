@@ -124,11 +124,4 @@ class PostQualificationRequestTest extends \PHPUnit_Framework_TestCase
     public function testPropertyCertificate()
     {
     }
-
-    /**
-     * Test attribute "type"
-     */
-    public function testPropertyType()
-    {
-    }
 }
