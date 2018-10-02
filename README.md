@@ -114,6 +114,7 @@ Class | Method | HTTP request | Description
  - [WorkerRequest](docs/Model/WorkerRequest.md)
  - [WorkerResponse](docs/Model/WorkerResponse.md)
  - [PostQualificationRequest](docs/Model/PostQualificationRequest.md)
+ - [RemovePreferredTranslatorRequest](docs/Model/RemovePreferredTranslatorRequest.md)
  - [UnrevokeQualificationRequest](docs/Model/UnrevokeQualificationRequest.md)
  - [WorkerDomainRequest](docs/Model/WorkerDomainRequest.md)
 

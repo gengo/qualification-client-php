@@ -60,7 +60,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **removePreferredTranslators**
-> \QualificationClient\Model\QualificationResponse[] removePreferredTranslators($user_id, $ids, $force)
+> \QualificationClient\Model\QualificationResponse[] removePreferredTranslators($user_id, $remove_preferred_translators)
 
 Remove preferred translators
 
@@ -77,11 +77,10 @@ $apiInstance = new QualificationClient\Api\CustomerApi(
     new GuzzleHttp\Client()
 );
 $user_id = 56; // int | Customer user ID.
-$ids = new \QualificationClient\Model\IDCollectionRequest(); // \QualificationClient\Model\IDCollectionRequest | 
-$force = new \QualificationClient\Model\null(); //  | Pemanent deletion of the preferred translators
+$remove_preferred_translators = new \QualificationClient\Model\RemovePreferredTranslatorRequest(); // \QualificationClient\Model\RemovePreferredTranslatorRequest | 
 
 try {
-    $result = $apiInstance->removePreferredTranslators($user_id, $ids, $force);
+    $result = $apiInstance->removePreferredTranslators($user_id, $remove_preferred_translators);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CustomerApi->removePreferredTranslators: ', $e->getMessage(), PHP_EOL;
@@ -94,8 +93,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **user_id** | **int**| Customer user ID. |
- **ids** | [**\QualificationClient\Model\IDCollectionRequest**](../Model/IDCollectionRequest.md)|  |
- **force** | [****](../Model/.md)| Pemanent deletion of the preferred translators | [optional]
+ **remove_preferred_translators** | [**\QualificationClient\Model\RemovePreferredTranslatorRequest**](../Model/RemovePreferredTranslatorRequest.md)|  |
 
 ### Return type
 

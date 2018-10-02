@@ -66,7 +66,6 @@ class QualificationResponse implements ModelInterface, ArrayAccess
         'status' => 'string',
         'user' => '\QualificationClient\Model\QualificationResponseUser',
         'certificate' => 'string',
-        'type' => 'string',
         'mtime' => '\DateTime',
         'ctime' => '\DateTime'
     ];
@@ -86,7 +85,6 @@ class QualificationResponse implements ModelInterface, ArrayAccess
         'status' => null,
         'user' => null,
         'certificate' => null,
-        'type' => null,
         'mtime' => 'date-time',
         'ctime' => 'date-time'
     ];
@@ -127,7 +125,6 @@ class QualificationResponse implements ModelInterface, ArrayAccess
         'status' => 'status',
         'user' => 'user',
         'certificate' => 'certificate',
-        'type' => 'type',
         'mtime' => 'mtime',
         'ctime' => 'ctime'
     ];
@@ -147,7 +144,6 @@ class QualificationResponse implements ModelInterface, ArrayAccess
         'status' => 'setStatus',
         'user' => 'setUser',
         'certificate' => 'setCertificate',
-        'type' => 'setType',
         'mtime' => 'setMtime',
         'ctime' => 'setCtime'
     ];
@@ -167,7 +163,6 @@ class QualificationResponse implements ModelInterface, ArrayAccess
         'status' => 'getStatus',
         'user' => 'getUser',
         'certificate' => 'getCertificate',
-        'type' => 'getType',
         'mtime' => 'getMtime',
         'ctime' => 'getCtime'
     ];
@@ -277,7 +272,6 @@ class QualificationResponse implements ModelInterface, ArrayAccess
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
         $this->container['user'] = isset($data['user']) ? $data['user'] : null;
         $this->container['certificate'] = isset($data['certificate']) ? $data['certificate'] : null;
-        $this->container['type'] = isset($data['type']) ? $data['type'] : null;
         $this->container['mtime'] = isset($data['mtime']) ? $data['mtime'] : null;
         $this->container['ctime'] = isset($data['ctime']) ? $data['ctime'] : null;
     }
@@ -552,30 +546,6 @@ class QualificationResponse implements ModelInterface, ArrayAccess
     public function setCertificate($certificate)
     {
         $this->container['certificate'] = $certificate;
-
-        return $this;
-    }
-
-    /**
-     * Gets type
-     *
-     * @return string
-     */
-    public function getType()
-    {
-        return $this->container['type'];
-    }
-
-    /**
-     * Sets type
-     *
-     * @param string $type type
-     *
-     * @return $this
-     */
-    public function setType($type)
-    {
-        $this->container['type'] = $type;
 
         return $this;
     }

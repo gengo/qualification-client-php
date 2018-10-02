@@ -12,7 +12,6 @@ Name | Type | Description | Notes
 **status** | **string** | Status of qualification | [optional] 
 **user** | [**\QualificationClient\Model\QualificationResponseUser**](QualificationResponseUser.md) |  | [optional] 
 **certificate** | **string** | URL of a worker certification file | [optional] 
-**type** | **string** |  | [optional] 
 **mtime** | [**\DateTime**](\DateTime.md) |  | [optional] 
 **ctime** | [**\DateTime**](\DateTime.md) |  | [optional] 
 

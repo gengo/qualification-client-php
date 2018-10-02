@@ -1,6 +1,6 @@
 <?php
 /**
- * QualificationRequestTest
+ * RemovePreferredTranslatorRequestTest
  *
  * PHP version 5
  *
@@ -30,15 +30,15 @@
 namespace QualificationClient;
 
 /**
- * QualificationRequestTest Class Doc Comment
+ * RemovePreferredTranslatorRequestTest Class Doc Comment
  *
  * @category    Class
- * @description QualificationRequest
+ * @description RemovePreferredTranslatorRequest
  * @package     QualificationClient
  * @author      Swagger Codegen team
  * @link        https://github.com/swagger-api/swagger-codegen
  */
-class QualificationRequestTest extends \PHPUnit_Framework_TestCase
+class RemovePreferredTranslatorRequestTest extends \PHPUnit_Framework_TestCase
 {
 
     /**
@@ -70,58 +70,23 @@ class QualificationRequestTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test "QualificationRequest"
+     * Test "RemovePreferredTranslatorRequest"
      */
-    public function testQualificationRequest()
+    public function testRemovePreferredTranslatorRequest()
     {
     }
 
     /**
-     * Test attribute "qualification_type"
+     * Test attribute "ids"
      */
-    public function testPropertyQualificationType()
+    public function testPropertyIds()
     {
     }
 
     /**
-     * Test attribute "domain_id"
+     * Test attribute "force"
      */
-    public function testPropertyDomainId()
-    {
-    }
-
-    /**
-     * Test attribute "lc_src"
-     */
-    public function testPropertyLcSrc()
-    {
-    }
-
-    /**
-     * Test attribute "lc_tgt"
-     */
-    public function testPropertyLcTgt()
-    {
-    }
-
-    /**
-     * Test attribute "rank"
-     */
-    public function testPropertyRank()
-    {
-    }
-
-    /**
-     * Test attribute "status"
-     */
-    public function testPropertyStatus()
-    {
-    }
-
-    /**
-     * Test attribute "certificate"
-     */
-    public function testPropertyCertificate()
+    public function testPropertyForce()
     {
     }
 }
