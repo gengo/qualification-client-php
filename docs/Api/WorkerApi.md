@@ -107,7 +107,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getWorkerQualifications**
-> \QualificationClient\Model\WorkerQualificationResponse[] getWorkerQualifications($qualification_type)
+> \QualificationClient\Model\WorkerQualificationResponse[] getWorkerQualifications($worker_id)
 
 Get worker qualifications
 
@@ -121,10 +121,10 @@ $apiInstance = new QualificationClient\Api\WorkerApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$qualification_type = "qualification_type_example"; // string | Qualification type.
+$worker_id = 56; // int | ID of a worker
 
 try {
-    $result = $apiInstance->getWorkerQualifications($qualification_type);
+    $result = $apiInstance->getWorkerQualifications($worker_id);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling WorkerApi->getWorkerQualifications: ', $e->getMessage(), PHP_EOL;
@@ -136,7 +136,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **qualification_type** | **string**| Qualification type. |
+ **worker_id** | **int**| ID of a worker |
 
 ### Return type
 
@@ -154,7 +154,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getWorkers**
-> \QualificationClient\Model\WorkerResponse[] getWorkers($domain_id)
+> \QualificationClient\Model\WorkerResponse[] getWorkers()
 
 Get workers
 
@@ -168,10 +168,9 @@ $apiInstance = new QualificationClient\Api\WorkerApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$domain_id = 56; // int | ID of domain/specialization.
 
 try {
-    $result = $apiInstance->getWorkers($domain_id);
+    $result = $apiInstance->getWorkers();
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling WorkerApi->getWorkers: ', $e->getMessage(), PHP_EOL;
@@ -180,10 +179,7 @@ try {
 ```
 
 ### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **domain_id** | **int**| ID of domain/specialization. |
+This endpoint does not need any parameter.
 
 ### Return type
 
